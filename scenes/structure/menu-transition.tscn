@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/structure/anchored_tw.png" type="Texture" id=1]
+[ext_resource path="res://scenes/structure/main-menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/structure/menu-transition-bg.tres" type="StyleBox" id=3]
+[ext_resource path="res://scenes/structure/menu-transition.gd" type="Script" id=4]
+
+[node name="menu-transition" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main-menu" parent="." instance=ExtResource( 2 )]
+
+[node name="Anchored" parent="main-menu" index="1"]
+visible = false
+
+[node name="bg" type="Panel" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_styles/panel = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Anchored" type="TextureRect" parent="bg"]
+margin_left = 320.0
+margin_top = 412.0
+margin_right = 1600.0
+margin_bottom = 668.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="main-menu"]

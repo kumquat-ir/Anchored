@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/game/WallPolygon.gd" type="Script" id=1]
+
+[node name="WallPolygon" type="StaticBody2D" groups=[
+"wall",
+]]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "TURN ON EDIT CHILDREN
+CollisionPolygon2D will take its polygon from Polygon2D at runtime"
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4.27238, -3.35537, 4.90343, -3.35537, 0.213577, 4.39309 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]

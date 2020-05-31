@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/game/Level Switch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/game/WallPolygon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/NafeesWeb.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/game/Lever.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/game/Level00.gd" type="Script" id=5]
+[ext_resource path="res://scenes/game/GravFieldCircle.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+resource_name = "Nafees"
+size = 30
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Level00" type="Node2D" groups=[
+"level",
+]]
+script = ExtResource( 5 )
+
+[node name="Lever" parent="." instance=ExtResource( 4 )]
+position = Vector2( 400, 480 )
+
+[node name="GravFieldCircle" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 128, 448 )
+
+[node name="Outer" parent="." instance=ExtResource( 2 )]
+
+[node name="Polygon2D" parent="Outer" index="1"]
+polygon = PoolVector2Array( 0, 256, 64, 256, 64, 512, 896, 512, 896, 576, 0, 576 )
+
+[node name="Level Switch" parent="." instance=ExtResource( 1 )]
+position = Vector2( 904, 416 )
+index = 0
+connection = "Level01"
+connectIndex = 1
+dispVec = Vector2( -65, 0 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 112.0
+margin_top = 168.0
+margin_right = 424.0
+margin_bottom = 216.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Press down/S to interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TW0" parent="." instance=ExtResource( 2 )]
+togIndex = 0
+
+[node name="Polygon2D" parent="TW0" index="1"]
+polygon = PoolVector2Array( 512, 64, 576, 64, 576, 512, 512, 512 )
+
+[node name="Outer2" parent="." instance=ExtResource( 2 )]
+
+[node name="Polygon2D" parent="Outer2" index="1"]
+polygon = PoolVector2Array( 0, 0, 896, 0, 896, 320, 832, 320, 832, 64, 0, 64 )
+
+[node name="TW1" parent="." instance=ExtResource( 2 )]
+
+[node name="Polygon2D" parent="TW1" index="1"]
+polygon = PoolVector2Array( 0, 64, 64, 64, 64, 256, 0, 256 )
+
+[node name="Back" parent="." instance=ExtResource( 2 )]
+position = Vector2( -320, 0 )
+
+[node name="Polygon2D" parent="Back" index="1"]
+polygon = PoolVector2Array( -704, 1536, -2432, 1536, -2432, 1216, -1728, 1216, -1728, 0, -584, 0, -584, 64, -1664, 64, -1664, 1280, -2368, 1280, -2368, 1472, -704, 1472 )
+
+[node name="Level Switch2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2232, 1376 )
+index = 1
+connection = "Level02"
+connectIndex = 1
+
+[editable path="Outer"]
+
+[editable path="TW0"]
+
+[editable path="Outer2"]
+
+[editable path="TW1"]
+
+[editable path="Back"]

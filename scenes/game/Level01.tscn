@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/game/GravFieldCircle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/game/WallPolygon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/game/Level.gd" type="Script" id=3]
+[ext_resource path="res://scenes/game/Level Switch.tscn" type="PackedScene" id=4]
+
+[node name="Level01" type="Node2D" groups=[
+"level",
+]]
+script = ExtResource( 3 )
+
+[node name="GravFieldCircle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1696, 936 )
+gravity_vec = Vector2( 0, -1 )
+
+[node name="Level Switch" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1928, 160 )
+index = 0
+connection = "Level02"
+connectIndex = 0
+dispVec = Vector2( -65, 0 )
+
+[node name="WallPolygon2" parent="." instance=ExtResource( 2 )]
+
+[node name="Polygon2D" parent="WallPolygon2" index="1"]
+polygon = PoolVector2Array( 576, 1048, 576, 320, 640, 320, 640, 576, 768, 576, 768, 640, 640, 640, 640, 760, 896, 760, 896, 824, 640, 824, 640, 1048 )
+
+[node name="GravFieldCircle2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152, 936 )
+gravity_vec = Vector2( 1, 0 )
+
+[node name="WallPolygon" parent="." instance=ExtResource( 2 )]
+
+[node name="Polygon2D" parent="WallPolygon" index="1"]
+polygon = PoolVector2Array( 1920, 256, 1920, 1080, 0, 1080, 0, 0, 1920, 0, 1920, 64, 640, 64, 640, 128, 576, 128, 576, 64, 64, 64, 64, 1016, 1856, 1016, 1856, 256 )
+
+[node name="Level Switch2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 760, 920 )
+index = 1
+connection = "Level00"
+connectIndex = 0
+
+[editable path="WallPolygon2"]
+
+[editable path="WallPolygon"]

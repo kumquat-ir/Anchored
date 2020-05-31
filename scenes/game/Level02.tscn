@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/game/Level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/game/GravFieldCircle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/game/WallPolygon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/game/Level Switch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/game/Lever.tscn" type="PackedScene" id=5]
+
+[node name="Level02" type="Node2D" groups=[
+"level",
+]]
+script = ExtResource( 1 )
+
+[node name="Level Switch2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2248, 160 )
+index = 1
+connection = "Level03"
+connectIndex = 0
+dispVec = Vector2( -65, 0 )
+
+[node name="Level Switch" parent="." instance=ExtResource( 4 )]
+position = Vector2( -8, 1696 )
+index = 0
+connection = "Level01"
+connectIndex = 0
+
+[node name="Lever" parent="." instance=ExtResource( 5 )]
+position = Vector2( 736, 1344 )
+rotation = -1.5708
+callGroup = "SETPERSIST"
+method = "Level00"
+index = "TW1_ACTIVE"
+
+[node name="GravFieldCircle2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 720, 1736 )
+gravity_vec = Vector2( -1, 0 )
+
+[node name="BRwall" parent="." instance=ExtResource( 3 )]
+
+[node name="Polygon2D" parent="BRwall" index="1"]
+polygon = PoolVector2Array( 0, 1792, 0, 1856, 2240, 1856, 2240, 256, 2176, 256, 2176, 1792 )
+
+[node name="TLwall" parent="." instance=ExtResource( 3 )]
+
+[node name="Polygon2D" parent="TLwall" index="1"]
+polygon = PoolVector2Array( 2240, 64, 2240, 0, 0, 0, 0, 1600, 64, 1600, 64, 64 )
+
+[node name="GravFieldCircle" parent="." instance=ExtResource( 2 )]
+position = Vector2( 136, 144 )
+gravity_vec = Vector2( -1, 0 )
+
+[node name="WallPolygon" parent="." instance=ExtResource( 3 )]
+
+[node name="Polygon2D" parent="WallPolygon" index="1"]
+polygon = PoolVector2Array( 448, 1600, 512, 1600, 512, 64, 448, 64 )
+
+[node name="WallPolygon2" parent="." instance=ExtResource( 3 )]
+
+[node name="Polygon2D" parent="WallPolygon2" index="1"]
+polygon = PoolVector2Array( 768, 1792, 832, 1792, 832, 1216, 512, 1216, 512, 1280, 768, 1280 )
+
+[editable path="BRwall"]
+
+[editable path="TLwall"]
+
+[editable path="WallPolygon"]
+
+[editable path="WallPolygon2"]

@@ -1,0 +1,160 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://scenes/game/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/player-walk.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.5, 63 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 19, 172, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 19, 0, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 172, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 86, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 19, 86, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 38, 86, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 57, 86, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 76, 86, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 95, 86, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 114, 86, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 133, 86, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 19, 129, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 43, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 19, 43, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 38, 43, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 57, 43, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 76, 43, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 95, 43, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 114, 43, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
+region = Rect2( 133, 43, 19, 43 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 129, 19, 43 )
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "fall-l",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "still-r",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "still-l",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "fall-r",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "walk-l",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "jump-l",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "walk-r",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 23 ) ],
+"loop": true,
+"name": "jump-r",
+"speed": 0.0
+} ]
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 1 )
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 3, 3 )
+frames = SubResource( 24 )
+animation = "still-r"
+playing = true
+offset = Vector2( -0.5, -1 )
+
+[node name="Camera" type="Camera2D" parent="."]
+rotating = true
+current = true
+limit_smoothed = true
+smoothing_enabled = true
+editor_draw_screen = false
