@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Nafees-font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/structure/win.gd" type="Script" id=2]
+
+[node name="win" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 559.259
+margin_top = 205.265
+margin_right = 1385.26
+margin_bottom = 343.265
+custom_fonts/normal_font = ExtResource( 1 )
+text = "You have won!"
+
+[node name="Menu" type="Button" parent="."]
+margin_left = 675.961
+margin_top = 695.441
+margin_right = 1217.96
+margin_bottom = 837.441
+custom_fonts/font = ExtResource( 1 )
+text = "Main Menu"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

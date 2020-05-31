@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/game/Level Switch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/game/WallPolygon.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/game/Lever.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/game/Level00.gd" type="Script" id=5]
 [ext_resource path="res://scenes/game/GravFieldCircle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/game/Goal.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 resource_name = "Nafees"
@@ -69,13 +70,17 @@ polygon = PoolVector2Array( 0, 64, 64, 64, 64, 256, 0, 256 )
 position = Vector2( -320, 0 )
 
 [node name="Polygon2D" parent="Back" index="1"]
-polygon = PoolVector2Array( -704, 1536, -2432, 1536, -2432, 1216, -1728, 1216, -1728, 0, -584, 0, -584, 64, -1664, 64, -1664, 1280, -2368, 1280, -2368, 1472, -704, 1472 )
+polygon = PoolVector2Array( -704, 1536, -2432, 1536, -2432, 1216, -1728, 1216, -1728, 0, -584, 0, -584, 64, -1664, 64, -1664, 1280, -2368, 1280, -2368, 1472, -768, 1472, -768, 896, -704, 896 )
 
 [node name="Level Switch2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -2232, 1376 )
 index = 1
 connection = "Level02"
 connectIndex = 1
+
+[node name="Goal" parent="." instance=ExtResource( 7 )]
+position = Vector2( -1208, 1016 )
+rotation = -1.5708
 
 [editable path="Outer"]
 

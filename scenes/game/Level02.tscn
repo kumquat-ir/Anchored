@@ -14,8 +14,8 @@ script = ExtResource( 1 )
 [node name="Level Switch2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2248, 160 )
 index = 1
-connection = "Level03"
-connectIndex = 0
+connection = "Level00"
+connectIndex = 1
 dispVec = Vector2( -65, 0 )
 
 [node name="Level Switch" parent="." instance=ExtResource( 4 )]
@@ -35,19 +35,27 @@ index = "TW1_ACTIVE"
 position = Vector2( 720, 1736 )
 gravity_vec = Vector2( -1, 0 )
 
+[node name="GravFieldCircle3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 608, 504 )
+gravity_vec = Vector2( 1, 1 )
+
+[node name="GravFieldCircle4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1712, 1016 )
+gravity_vec = Vector2( 1, 0 )
+
+[node name="GravFieldCircle" parent="." instance=ExtResource( 2 )]
+position = Vector2( 136, 144 )
+gravity_vec = Vector2( -1, 0 )
+
 [node name="BRwall" parent="." instance=ExtResource( 3 )]
 
 [node name="Polygon2D" parent="BRwall" index="1"]
-polygon = PoolVector2Array( 0, 1792, 0, 1856, 2240, 1856, 2240, 256, 2176, 256, 2176, 1792 )
+polygon = PoolVector2Array( 0, 1792, 0, 1856, 2240, 1856, 2240, 256, 2176, 256, 2176.17, 418.766, 2176, 704, 1920, 448, 2176, 448, 2176, 384, 1792, 384, 2144, 736, 1088, 1792, 1144, 1792, 2176, 768, 2176, 1792, 1087.99, 1792.06 )
 
 [node name="TLwall" parent="." instance=ExtResource( 3 )]
 
 [node name="Polygon2D" parent="TLwall" index="1"]
 polygon = PoolVector2Array( 2240, 64, 2240, 0, 0, 0, 0, 1600, 64, 1600, 64, 64 )
-
-[node name="GravFieldCircle" parent="." instance=ExtResource( 2 )]
-position = Vector2( 136, 144 )
-gravity_vec = Vector2( -1, 0 )
 
 [node name="WallPolygon" parent="." instance=ExtResource( 3 )]
 
